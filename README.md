@@ -1,2 +1,12 @@
-# PG3D-Storage-API
-Uses Data PG3D Places In A Device's Storage To Create Info That May Be Useful For A Person's Needs.
+# PG3D Storage API In Python
+
+## How To Use:
+```python
+import api as ch
+```
+<details>
+    <summary>Examples
+    <ul>
+        <li>ch.getUsedIdsOnDevice
+    <ul>
+</details>
