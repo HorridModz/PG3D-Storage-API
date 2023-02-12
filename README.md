@@ -10,3 +10,15 @@ import api as ch
         <li>ch.getUsedIdsOnDevice
     <ul>
 </details>
+
+<details>
+    <summary>Requirements
+    <ul>
+        <li>Pydroid 3 (Found On The Play Store)
+        <li>PG3D Installed
+    <ul>
+</details>
+
+## Notes:
+ - The Script Will Run Setup Handler For The First Time Only
+ - If Internet Connection Is Available And A New Version Exists, The Script Will Warn About The New Update
