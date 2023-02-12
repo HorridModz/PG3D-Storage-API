@@ -94,7 +94,7 @@ def checkforupdates():
 
     # End of _update() function
     success, text = _getrequest("https://raw.githubusercontent.com/ChrxnZ/PG3D-Storage-API/main/Info/currentVer.txt",
-                                errormessage="PG3D API: Unable to check for updates")
+                                errormessage="Unable to check for updates")
     if success:
         cloudversion = text.strip()
         if not (cloudversion == __version__ or cloudversion == ignoreversion):
@@ -182,37 +182,36 @@ def _disableupdatechecking():
         f.write(new)
 
 
-if updatechecking:
-    tocheckforupdates = input("PG3D API: Would you like to check for updates? (Y/N):")
-    if tocheckforupdates.strip().lower() == "y":
-        checkforupdates()
-    else:
-        todisable = input("Would you like to permanently disable update checking? (Y/N):")
-        if todisable.strip().lower() == "y":
-            with open(__file__, 'r') as f:
-                currentcode = f.read()
-            try:
-                _disableupdatechecking()
-            except Exception as err:
-                print("Failed to permanently disable update checking: " + str(err))
-                try:
-                    with open(__file__, 'r+') as f:
-                        if f.read() != currentcode:
-                            print("PG3D API has been corrupted. Attempting to repair...")
-                            try:
-                                f.write(currentcode)
-                            except Exception:
-                                print("Failed to repair PG3D API.")
-                            else:
-                                print("Successfully repaired PG3D API.")
-                except Exception:
-                    pass
-            else:
-                print("Successfully disabled update checking! Rerun PG3D API.")
-                sys.exit()
-
+# if updatechecking:
+    # tocheckforupdates = input("Would you like to check for updates? (Y/N):")
+    # if tocheckforupdates.strip().lower() == "y":
+        # checkforupdates()
+    # else:
+        # todisable = input("Would you like to permanently disable update checking? (Y/N):")
+        # if todisable.strip().lower() == "y":
+            # with open(__file__, 'r') as f:
+                # currentcode = f.read()
+            # try:
+                # _disableupdatechecking()
+            # except Exception as err:
+                # print("Failed to permanently disable update checking: " + str(err))
+                # try:
+                    # with open(__file__, 'r+') as f:
+                        # if f.read() != currentcode:
+                            # print("PG3D API has been corrupted. Attempting to repair...")
+                            # try:
+                                # f.write(currentcode)
+                            # except Exception:
+                                # print("Failed to repair PG3D API.")
+                            # else:
+                                # print("Successfully repaired PG3D API.")
+                # except Exception:
+                    # pass
+            # else:
+                # print("Successfully disabled update checking! Rerun PG3D API.")
+                # sys.exit()
+checkforupdates()
 if not detect_android():
     raise RuntimeError("PG3D API is only for Android devices!")
-
 if __name__ == "__main__":
     print(getUsedIdsOnDevice())
