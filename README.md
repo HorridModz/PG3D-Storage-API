@@ -1,4 +1,4 @@
-# PG3D Storage API In Python
+# PG3D Storage API In Python Inspired By poggersbutnot!
 
 ## How To Use:
 ```python
