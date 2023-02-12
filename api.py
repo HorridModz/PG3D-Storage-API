@@ -1,5 +1,5 @@
 __author__ = "ChrxnZX | Pulsed#1874"
-__version__ = "1.0.0"
+__version__ = "1.1.2"
 
 initialSetupIndex = 0
 
@@ -13,16 +13,11 @@ except ModuleNotFoundError:
 	print("Initial Setup Index No. " + str(initialSetupIndex))
 	import requests
 
-try:
-	import warnings
-except ModuleNotFoundError:
-	os.system("pip install warnings")
-	print("Initial Setup Index No. " + str(initialSetupIndex))
-	import warnings
+
 
 try:
     if not(requests.get("https://raw.githubusercontent.com/ChrxnZ/PG3D-Storage-API/main/Info/currentVer.txt").text.rstrip("\n") == vars()["__version__"]):
-    	warnings.warn("This API has an Update! https://github.com/ChrxnZ/PG3D-Storage-API/")
+    	print("This API has an Update! https://github.com/ChrxnZ/PG3D-Storage-API/")
 except requests.exceptions.ConnectionError:
     print("Unable To Check For Updates: No Internet Connection. Ignoring..")
 except requests.exceptions.HTTPError as err:
