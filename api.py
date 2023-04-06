@@ -94,7 +94,7 @@ def checkforupdates():
 
     # End of _update() function
     success, text = _getrequest("https://raw.githubusercontent.com/ChrxnZ/PG3D-Storage-API/main/Info/currentVer.txt",
-                                errormessage="Unable to check for updates")
+                                errormessage=None)
     if success:
         cloudversion = text.strip()
         if not (cloudversion == __version__ or cloudversion == ignoreversion):
